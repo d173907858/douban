@@ -6,6 +6,12 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+//swiper
+import '../node_modules/swiper/dist/css/swiper.min.css'
+//mint-ui
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
