@@ -19,8 +19,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  img{
-    width:1000px;
-  }
+  
 }
+@import './stylesheets/_reset.scss';
+@import './stylesheets/_common.scss';
 </style>
