@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import config from './modules/config'
 Vue.config.productionTip = false
 
 //swiper
@@ -16,6 +16,7 @@ Vue.use(MintUI)
 new Vue({
   el: '#app',
   router,
+  data: { config },
   components: { App },
   template: '<App/>'
 })
