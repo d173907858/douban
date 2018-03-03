@@ -1,15 +1,18 @@
 <template>
     <div class="columns">
         <columns-banner></columns-banner>
+        <columns-content></columns-content>
     </div>
 </template>
 
 <script>
 import ColumnsBanner from './Banner'
+import ColumnsContent from './ColumnsContent'
 export default {
   name: 'columns',
   components: {
-      ColumnsBanner
+      ColumnsBanner,
+      ColumnsContent
   }
 }
 </script>
