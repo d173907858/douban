@@ -8,7 +8,7 @@
                 </div>
             </div>
             <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" slot="pagination"></div>
         </div>
     </div>
 </template>
@@ -35,11 +35,14 @@ export default {
       this.getBanners()
   },
   updated () {
-      new Swiper('.swiper-container', {
+      new Swiper('.banner', {
           loop:true,
           autoplay: true,
+          disableOnInteraction: false,
+          allowTouchMove: false,
           pagination: {
             el: '.swiper-pagination',
+            clickable :true,
             }
       })
   }
@@ -54,6 +57,20 @@ export default {
         font-size: 20px;
         font-weight: bold;
     }
+    .swiper-container {
+        height: 0;
+        padding-bottom: 56%;
+    }
+    .swiper-pagination {
+        position: relative;
+        bottom: -173px;
+    }
+    .swiper-pagination >>> .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+    }
+    
 }
 </style>
 
