@@ -2,7 +2,11 @@
   <div id="app">
     
     <app-header></app-header>
+<<<<<<< HEAD
     <router-view></router-view>
+=======
+    <router-view/>
+>>>>>>> ...
   </div>
 </template>
 
