@@ -4,6 +4,8 @@ import Home from '../components/page/Home/Home'
 import Columns from '@/components/page/Columns/Columns'
 import List from '../components/page/List/List'
 import HomeDetail from '../components/page/HomeDetail/HomeDetail'
+import Column from '@/components/page/ColumnDetail/Detail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -15,12 +17,7 @@ export default new Router({
        component:Home
 
      },
-    {
-      path: '/columns',
-      name: 'Columns',
-      component: Columns
-    },
-    {
+     {
       path: '/list/:id',
       name: 'List',
       component: List
@@ -30,5 +27,15 @@ export default new Router({
       name: 'HomeDetail',
       component: HomeDetail
     },
+    {
+      path: '/columns',
+      name: 'Columns',
+      component: Columns
+    },
+    {path: '/column/:id',
+      name: 'Column',
+      component: Column,
+      props: true
+    }
   ]
 })

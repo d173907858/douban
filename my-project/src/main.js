@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import config from './modules/config'
+import store from './store'
 Vue.config.productionTip = false
 
 //swiper
