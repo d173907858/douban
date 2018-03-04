@@ -20,12 +20,7 @@ export default new Router({
        component:Home
 
      },
-    {
-      path: '/columns',
-      name: 'Columns',
-      component: Columns
-    },
-    {
+     {
       path: '/list/:id',
       name: 'List',
       component: List
@@ -54,6 +49,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {  path: '/columns',
+      name: 'Columns',
+      component: Columns
     }
+    
   ]
 })
