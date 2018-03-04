@@ -1,6 +1,7 @@
 <template>
     <div class="app-columns-banner">
         <h1>专栏连载</h1>
+        <span class="link-more">了解更多 <i class="fa fa-angle-right"></i></span>
         <div class="swiper-container banner">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(banner,index) in banners" :key="index">
@@ -16,20 +17,19 @@
 <script>
 // https://read.douban.com/j/column_v2/
 import Swiper from 'swiper'
-import axios from 'axios'
+import {mapState} from 'vuex'
+import {GET_COLUMNS} from '../../../store/columns/const'
 export default {
   name: 'app-columns-banner',
-  data () {
-      return {
-          banners: []
-      }
-  },
   methods: {
       getBanners () {
-          axios.get(this.$root.config.host + '/db/j/column_v2/').then(res =>{
-              this.banners = res.data.banners
-          })
+        this.$store.dispatch(GET_COLUMNS)
       }
+  },
+  computed: {
+    ...mapState({
+        banners: state => state.columns.banners
+    })
   },
   created () {
       this.getBanners()
@@ -51,11 +51,21 @@ export default {
 
 <style lang="scss" scoped>
 .app-columns-banner {
+    position: relative;
     padding: 17px 15px;
     h1{
-        margin-bottom: 10px; 
-        font-size: 20px;
+        margin-bottom: .2rem; 
+        font-size: .2rem;
         font-weight: bold;
+    }
+    .link-more {
+        position: absolute;
+        top: .2rem;
+        right: .15rem;
+        color: #68abb7;
+        i{
+            font-size: 16px;
+        }
     }
     .swiper-container {
         height: 0;
@@ -63,7 +73,7 @@ export default {
     }
     .swiper-pagination {
         position: relative;
-        bottom: -173px;
+        bottom: -1.73rem;
     }
     .swiper-pagination >>> .swiper-pagination-bullet {
         width: 6px;

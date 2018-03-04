@@ -6,6 +6,8 @@ import List from '../components/page/List/List'
 import HomeDetail from '../components/page/HomeDetail/HomeDetail'
 import Cars from '../components/page/Cars/Cars.vue'
 import Mine from '../components/page/Mine/Mine.vue'
+import Column from '@/components/page/ColumnDetail/Detail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -42,5 +44,10 @@ export default new Router({
       name: 'Mine',
       component: Mine
     },
+    { path: '/column/:id',
+      name: 'Column',
+      component: Column,
+      props: true
+    }
   ]
 })
