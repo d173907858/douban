@@ -1,0 +1,5 @@
+export const SET_COLUMNS = 'SET_COLUMNS'
+export const GET_COLUMNS = 'GET_COLUMNS'
+export const SET_CHARTS = 'SET_CHARTS'
+export const SET_BANNERS = 'SET_BANNERS'
+export const SET_KINDS = 'SET_KINDS'
