@@ -15,7 +15,8 @@ export default {
   components: {
       ColumnsBanner,
       ColumnsContent,
-      ColumnsCategories
+      ColumnsCategories,
+      ColumnsContent
   }
 }
 </script>
