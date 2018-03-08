@@ -7,14 +7,10 @@ import {
 
 let mutations ={
     [SET_BOOKS] (state,books) {
-        console.log(books)
         state.books = state.books.concat(books)
-
     },
     [RE_BOOKS](state){
         state.books = []
-        
-    
     }
 }
 export default mutations

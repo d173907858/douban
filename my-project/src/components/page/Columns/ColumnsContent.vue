@@ -6,17 +6,12 @@
 
 <script>
 import ColumnsItem from './ColumnsItem'
-<<<<<<< HEAD
-=======
 import {GET_COLUMNS} from '../../../store/columns/const'
 import {mapState} from 'vuex'
->>>>>>> 完成专栏详情页
 export default {
   name: 'columns-content',
   components: {
       ColumnsItem
-<<<<<<< HEAD
-=======
   },
   methods: {
       getCharts () {
@@ -30,15 +25,11 @@ export default {
   },
   created () {
       this.getCharts()
->>>>>>> 完成专栏详情页
   }
 }
 </script>
 
 <style lang="scss" escoped>
-<<<<<<< HEAD
-
-=======
 .swiper-scrollbar {
     background: 0;
 }
@@ -98,5 +89,4 @@ export default {
         }
     }
 }
->>>>>>> 完成专栏详情页
 </style>
