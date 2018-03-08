@@ -16,6 +16,7 @@
     
     </div>
 </div>
+<div class="mask"  @click="tagShow" v-if="isShow"></div>
 </div>
 </template>
 <script>
@@ -27,6 +28,11 @@ export default {
 </script>
 <style lang="scss" scoped>
     .tab-bar{
+         
+        .mask{
+            width: 100%;
+            height: 45px;
+        }
          z-index: 500;
         display: flex;
         justify-content: space-between;
@@ -47,6 +53,9 @@ export default {
             display: inline-block;
             margin-left: 10px;
                 height: 45px
+        }
+        .more{
+            margin-left: 15px;
         }
         .more::before{
             

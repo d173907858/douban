@@ -1,34 +1,37 @@
 <template>
   <div class="home-items">
   <section class="items"  v-for="(billboard,i) in billboards" :key="i">
-      <h3 class="tiltle">
+      <h3 class="tiltle"  @click="RE_BOOKS()">
            {{billboard.name}}
-          <i class="fa fa-chevron-circle-right"></i>
+          <router-link :to="{name:'List',params:{id:billboard.name}}" tag="i" class="fa fa-chevron-circle-right"></router-link>
       </h3>
       <div class="items-box" >
-         
-          <div class="items-book" v-for="(works,index) in billboard.works" :key="index">
+          <div  class="items-book" v-for="(works,index) in billboard.works" :key="index" >
+          <router-link :to="{name:'HomeDetail',params:{id:works.id}}" tag="div">
               <img :src="works.cover" alt="">
               <h3 class="book-title">{{works.title}}</h3>
               <p class="book-autor">{{works.autor}}</p>
               <p class="book-price">￥{{works.price | math}}</p>
+          </router-link>
           </div>
-          
       </div>
+      
   </section>
   </div>
 </template>
 <script>
 import Swiper from 'swiper'
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 import {DGET_BILLBOARDS} from '../../../store/home/const'
+import {RE_BOOKS} from '../../../store/list/const'
 export default {
   name:'home-items',
   methods:{
       get_billboards(){
           this.$store.dispatch(DGET_BILLBOARDS)
-          console.log(this.billboards)
+        //   console.log(this.billboards)
       },
+      ...mapMutations([RE_BOOKS])
      
   },
   computed:{

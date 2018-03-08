@@ -4,13 +4,13 @@
       <nav v-if="isShow" >
         <ul class="nav-list">
           <li  v-for="nav in navs" :key="nav.id" class="nav-item">
-            <router-link :to="nav.path"  @click.native="tagNav" >{{nav.title}} <i class="fa fa-angle-right"></i> </router-link>
+            <router-link :to="nav.path"  @click.native="tagShow" >{{nav.title}} <i class="fa fa-angle-right"></i> </router-link>
           </li>
         </ul>
       </nav>
     </transition>
     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-     
+       <div v-if="isShow" @click="tagShow" class="mask"></div>
     </transition>
   </div>
 </template>
@@ -19,12 +19,13 @@
 
 export default {
   name:'app-header-nav',
-  props:['isShow','tagNav'],
+  props:['isShow','tagShow'],
   data () {
     return {
       navs:[
-        {id:1,title:'专栏连载',path:'/home'},
-        {id:2,title:'短片作品',path:'/films'}
+         {id:1,title:'豆瓣首页',path:'/home'},
+        {id:2,title:'专栏连载',path:'/aa'},
+        {id:3,title:'短片作品',path:'/aa'}
  
       ]
     }
@@ -57,7 +58,7 @@ export default {
   .mask{
   	position:fixed;
     z-index:9;
-    background: rgba(0,0,0,0.5);
+ 
     animation-duration: 0.5s;
      left: 0;right: 0;top: 0;bottom:0;
   }

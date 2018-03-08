@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import home from './home'
-import List from './list'
-
+import list from './list'
+import homedetail from './homedetail'
 const store = new Vuex.Store({
     modules:{
-        home,List
+        home,list,homedetail
     }
 
 

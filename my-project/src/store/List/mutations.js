@@ -1,12 +1,20 @@
 import { 
-    DSET_BILLBOARDS
+    SET_BOOKS,
+    RE_BOOKS
  } from './const'
 
 
 
 let mutations ={
-    [DSET_BILLBOARDS] (state,data) {
-        state.data = data
+    [SET_BOOKS] (state,books) {
+        console.log(books)
+        state.books = state.books.concat(books)
+
+    },
+    [RE_BOOKS](state){
+        state.books = []
+        
+    
     }
 }
 export default mutations
