@@ -1,22 +1,26 @@
 <template>
-  <div class="columns column-detail">
-      <detail-profile></detail-profile>
+  <div class="main-box column-detail">
+      <detail-profile  :id='id'></detail-profile>
+      <profile-chapters :id='id'></profile-chapters>
+      <detail-footer></detail-footer>
   </div>
 </template>
 
 <script>
 import DetailProfile from './DetailProfile'
+import ProfileChapters from './ProfileChapters'
+import DetailFooter from './DetailFooter'
 export default {
   name:'column-detail',
+  props: ['id'],
   components: {
-      DetailProfile
+      DetailProfile,
+      ProfileChapters,
+      DetailFooter
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.column-detail{
-    padding-top: .45rem;
-    min-height: 2.6rem;
-}
+
 </style>

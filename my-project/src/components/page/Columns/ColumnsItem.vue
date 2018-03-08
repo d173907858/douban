@@ -60,16 +60,15 @@ export default {
 }
 .item-content {
     margin-top: .4rem;
-    padding: 0 12px;
     h3 {
-        margin-bottom: 15px;
-        font-size: 16px;
+        margin-bottom: .15rem;
+        font-size: .16rem;
         font-weight: bold;
     }
     .books {
         .book-content {
-            width: 95px!important;
-            margin-right: 15px;
+            width: .95rem!important;
+            margin-right: .15rem;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -86,10 +85,10 @@ export default {
             }
             .book-title {
                 color: #222;
-                font-size: 12px;
+                font-size: .12rem;
                 font-weight: bold;
                 margin-top: 6px;
-                line-height: 16px;
+                line-height: .16rem;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
@@ -102,10 +101,10 @@ export default {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 color: #999;
-                font-size: 12px;
+                font-size: .12rem;
             }
             .subscribe-num {
-                font-size: 12px;
+                font-size: .12rem;
                 color: #68abb7;
             }
         }

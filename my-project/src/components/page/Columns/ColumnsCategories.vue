@@ -29,11 +29,11 @@ export default {
 
 <style lang="scss" scoped>
 .columns-categories {
-    padding: 12px 15px;
+    padding: .12rem .15rem;
     margin-bottom: .4rem;
     margin-top: .4rem;
     h2 {
-        font-size: 15px;
+        font-size: .16rem;
         padding-bottom: 6px;
         position: relative;
         font-weight: bold;
@@ -66,7 +66,7 @@ export default {
                 padding: 4px 8px;
                 display: block;
                 color: #626262;
-                font-size: 14px;
+                font-size: .14rem;
             }
         }
     }
