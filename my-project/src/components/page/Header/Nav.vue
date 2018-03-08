@@ -24,7 +24,7 @@ export default {
     return {
       navs:[
          {id:1,title:'豆瓣首页',path:'/home'},
-        {id:2,title:'专栏连载',path:'/aa'},
+        {id:2,title:'专栏连载',path:'/columns'},
         {id:3,title:'短片作品',path:'/aa'},
         {id:4,title:'我的',path:'/aa'}
  
