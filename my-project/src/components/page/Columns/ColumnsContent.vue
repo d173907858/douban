@@ -1,63 +1,30 @@
 <template>
   <div class="columns-content">
       <columns-item></columns-item>
-      <div class="columns-item" v-for="chart in charts" :key="chart.id">
-          <h3>{{chart.name}}</h3>
-          <div class="swiper-container books">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide book-content" v-for="column in chart.columns" :key="column.id">
-                    <div class="book-box">
-                        <div class="cover">
-                            <img :src="column.retina_cover_url" alt="">
-                        </div>
-                        <h4 class="book-title">{{column.title}}</h4>
-                        <p class="book-info">{{column.author}}</p>
-                        <p class="subscribe-num">{{column.subscriber_num}}人订阅</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-scrollbar"></div>
-        </div>
-      </div>
   </div>
 </template>
 
 <script>
 import ColumnsItem from './ColumnsItem'
-import Swiper from 'swiper'
-import axios from 'axios'
+import {GET_COLUMNS} from '../../../store/columns/const'
+import {mapState} from 'vuex'
 export default {
   name: 'columns-content',
   components: {
       ColumnsItem
   },
-  data () {
-      return {
-         charts: {
-             columns:{}
-         }
-      }
-  },
   methods: {
       getCharts () {
-          axios.get(this.$root.config.host + '/db/j/column_v2/').then(res =>{
-              this.charts = res.data.charts
-          })
+         this.$store.dispatch(GET_COLUMNS)
       }
+  },
+  computed: {
+    ...mapState({
+        charts:state=>state.columns.charts
+    })
   },
   created () {
       this.getCharts()
-  },
-  updated () {
-      new Swiper('.books', {
-          slidesPerView : 3,
-          resistance : false,
-          centeredSlides : false,
-          scrollbar: {
-            el: '.swiper-scrollbar',
-            hide: true
-          }
-      })
   }
 }
 </script>
@@ -67,20 +34,20 @@ export default {
     background: 0;
 }
 .columns-item {
-    margin-top: 40px;
-    padding: 0 12px;
+    margin-top: .4rem;
+    padding: 0 .12rem;
     h3 {
-        padding: 0 15px;
-        margin-bottom: 15px;
-        font-size: 16px;
+        padding: 0 .15rem;
+        margin-bottom: .15rem;
+        font-size: .16rem;
         font-weight: bold;
     }
     .books {
         overflow-y: hidden;
         overflow-x: scroll;
         .book-box {
-            width: 95px;
-            margin-right: 15px;
+            width: .95rem;
+            margin-right: .15rem;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -97,10 +64,10 @@ export default {
             }
             .book-title {
                 color: #222;
-                font-size: 12px;
+                font-size: .12rem;
                 font-weight: bold;
                 margin-top: 6px;
-                line-height: 16px;
+                line-height: .16rem;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
@@ -113,10 +80,10 @@ export default {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 color: #999;
-                font-size: 12px;
+                font-size: .12rem;
             }
             .subscribe-num {
-                font-size: 12px;
+                font-size: .12rem;
                 color: #68abb7;
             }
         }

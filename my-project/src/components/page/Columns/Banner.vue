@@ -33,18 +33,6 @@ export default {
   },
   created () {
       this.getBanners()
-  },
-  updated () {
-      new Swiper('.banner', {
-          loop:true,
-          autoplay: true,
-          disableOnInteraction: false,
-          allowTouchMove: false,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable :true,
-            }
-      })
   }
 }
 </script>
@@ -52,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .app-columns-banner {
     position: relative;
-    padding: 17px 15px;
+    padding: .17rem .15rem;
     h1{
         margin-bottom: .2rem; 
         font-size: .2rem;
@@ -64,7 +52,7 @@ export default {
         right: .15rem;
         color: #68abb7;
         i{
-            font-size: 16px;
+            font-size: .16rem;
         }
     }
     .swiper-container {
