@@ -1,5 +1,5 @@
 <template>
-    <div class="columns">
+    <div class="main-box app-columns">
         <columns-banner></columns-banner>
         <columns-content></columns-content>
         <columns-categories></columns-categories>
@@ -11,7 +11,7 @@ import ColumnsBanner from './Banner'
 import ColumnsContent from './ColumnsContent'
 import ColumnsCategories from './ColumnsCategories'
 export default {
-  name: 'columns',
+  name: 'app-columns',
   components: {
       ColumnsBanner,
       ColumnsContent,
@@ -21,8 +21,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.columns {
-    padding-top: .45rem;
-    min-height: 2.6rem;
-}
+
 </style>

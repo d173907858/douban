@@ -5,6 +5,7 @@ import Columns from '@/components/page/Columns/Columns'
 import List from '../components/page/List/List'
 import HomeDetail from '../components/page/HomeDetail/HomeDetail'
 import Column from '@/components/page/ColumnDetail/Detail'
+import Login from '@/components/page/Login/Login'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       name: 'Column',
       component: Column,
       props: true
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

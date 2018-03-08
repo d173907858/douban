@@ -5,11 +5,10 @@ import home from './home'
 import list from './list'
 import homedetail from './homedetail'
 import columns from './columns'
+import columnsDetail from './columnsDetail'
 const store = new Vuex.Store({
     modules:{
-        home,list,homedetail,columns
+        home,list,homedetail,columns,columnsDetail
     }
-
-
 }) 
 export default store
