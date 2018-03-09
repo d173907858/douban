@@ -10,7 +10,6 @@ export default new Router({
        path:'/home',
        name:'Home',
        component:() => import('@/components/page/Home/Home')
-
      },
      {
       path: '/list/:id',
