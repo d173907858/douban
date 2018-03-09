@@ -12,11 +12,19 @@
                   <i class="fa fa-gift"></i>
               </a>
             </div>
-              <div class="footerbar" style="width:30%">
+              <router-link  class="footerbar" style="width:30%" :to="{name:'Cars',params:{
+                  id:id,
+                  price:bookdetail.price,
+                  name:bookdetail.title,
+                  num:1,
+                  type:1
+              }
+
+              }" tag="div">
                    <a href="#"  class="btn-self">
                   购买
               </a>
-              </div>
+              </router-link>
                 <div class="footerbar" style="width:30%">
                      <a href="#"  class="btn-read">
                  试读
@@ -26,8 +34,25 @@
   </div>
 </template>
 <script>
+import{GET_BOOKDETAIL} from '../../../store/homedetail/const'
+import{mapState,mapActions} from 'vuex'
 export default {
-  name:'detail-bottom'
+  name:'detail-bottom',
+  data(){
+   return{
+       id:this.$route.params.id
+   }
+  },
+   computed:{
+      ...mapState({
+          bookdetail:state=>state.homedetail.bookdetail
+      })
+  },
+  mounted(){
+      console.log(this.bookdetail)
+       console.log(this.id)
+  }
+
 }
 </script>
 <style lang="scss" scoped>

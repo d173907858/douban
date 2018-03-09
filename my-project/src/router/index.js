@@ -4,6 +4,8 @@ import Home from '../components/page/Home/Home'
 import Columns from '@/components/page/Columns/Columns'
 import List from '../components/page/List/List'
 import HomeDetail from '../components/page/HomeDetail/HomeDetail'
+import Cars from '../components/page/Cars/Cars.vue'
+import Mine from '../components/page/Mine/Mine.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +31,16 @@ export default new Router({
       path: '/homedetail/:id',
       name: 'HomeDetail',
       component: HomeDetail
+    },
+    {
+      path: '/cars',
+      name: 'Cars',
+      component: Cars
+    },
+    {
+      path: '/mine',
+      name: 'Mine',
+      component: Mine
     },
   ]
 })
