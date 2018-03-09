@@ -2,22 +2,22 @@
     <div class="app-columns-banner">
         <h1>专栏连载</h1>
         <span class="link-more">了解更多 <i class="fa fa-angle-right"></i></span>
-        <div class="swiper-container columns-banner">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(banner,index) in banners" :key="index">
-                    <img width="100%" :src="banner.image_url" alt="">
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+        <mt-swipe class="columns-banner" :auto="4000">
+                <mt-swipe-item class="swiper-slide" v-for="(banner,index) in banners" :key="index">
+                    <img width="100%" :src="banner.image_url">
+                </mt-swipe-item>
+        </mt-swipe>
     </div>
 </template>
 
 <script>
 // https://read.douban.com/j/column_v2/
-import Swiper from 'swiper'
 import {mapState} from 'vuex'
+import Vue from 'vue'
 import {GET_COLUMNS} from '../../../store/columns/const'
+import { Swipe, SwipeItem } from 'mint-ui'
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem); 
 export default {
   name: 'app-columns-banner',
   methods: {
@@ -54,18 +54,9 @@ export default {
             font-size: .16rem;
         }
     }
-    .swiper-container {
-        height: 0;
-        padding-bottom: 56%;
-    }
-    .swiper-pagination {
-        position: relative;
-        bottom: -1.73rem;
-    }
-    .swiper-pagination >>> .swiper-pagination-bullet {
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
+    .columns-banner {
+        width: 100%;
+        height: 200px;
     }
     
 }
