@@ -24,7 +24,7 @@ let actions = {
                         hide: true
                     }
                 })
-                 new Swiper('.banner', {
+                 new Swiper('.columns-banner', {
                     loop:true,
                     autoplay: true,
                     disableOnInteraction: false,

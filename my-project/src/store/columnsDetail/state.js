@@ -5,6 +5,7 @@ let state = {
         tags: [],
         abstract: [],
         kinds: []
-    }
+    },
+    modelShow:false
 }
 export default state
