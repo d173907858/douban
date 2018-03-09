@@ -2,14 +2,13 @@
     <div class="app-columns-banner">
         <h1>专栏连载</h1>
         <span class="link-more">了解更多 <i class="fa fa-angle-right"></i></span>
-        <div class="swiper-container banner">
+        <div class="swiper-container columns-banner">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(banner,index) in banners" :key="index">
                     <img width="100%" :src="banner.image_url" alt="">
                 </div>
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </template>

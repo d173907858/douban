@@ -6,33 +6,37 @@
           </a>
       </div>
       <div style="width:20%;" class="footer-col">
-          <a href="javascript:;" class="review" :data-num="detail.totalReviews">
+          <a href="javascript:;" class="review" :data-num="detail.totalReviews?detail.totalReviews:''">
               <i class="fa fa-commenting-o"></i>
           </a>
       </div>
       <div style="width:20%;" class="footer-col">
-          <a href="javascript:;" class="donate" :data-num="detail.donatorCount">
+          <a href="javascript:;" class="donate" :data-num="detail.donatorCount?detail.donatorCount:''">
               <i class="fa fa-gift"></i>
           </a>
       </div>
       <div style="width:40%;" class="footer-col">
           <div class="subscribe">
-            <router-link to="/login" class="btn-subscribe">
+            <div class="btn-subscribe" @click="CONTROL_MODEL({modelShow:true})">
                 <span class="btn-text">订阅</span>
-            </router-link>
+            </div>
           </div>
       </div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
+import {CONTROL_MODEL} from '../../../store/columnsDetail/const'
 export default {
   name: 'detail-footer',
   computed: {
       ...mapState({
           detail:state=>state.columnsDetail.detail
       })
+  },
+  methods: {
+      ...mapMutations([CONTROL_MODEL])
   }
 }
 </script>

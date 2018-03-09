@@ -8,10 +8,11 @@
 
 <script>
 import AppHeader from './components/page/Header/Header'
+import LoginDialog from './components/commons/LoginDialog/LoginDialog'
 export default {
   name: 'App',
   components:{
-    AppHeader
+    AppHeader,LoginDialog
   }
 }
 </script>

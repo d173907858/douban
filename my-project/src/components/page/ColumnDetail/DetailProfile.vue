@@ -14,10 +14,10 @@
             <i :class="[isShow?'fa fa-angle-down expand':'fa fa-angle-up expend']" @click="showInfo"></i>
         </div>
         <div class="rating">
-            <span class="stars-content stars-45">
-                <span class="stars-active"></span>
+            <span :class="['stars-content stars-'+ Math.round(detail.averageRating*10)]">
+                <span class="stars-active" :style="{width:(Math.round(1.44*(detail.averageRating*10))) + 'px'}"></span>
             </span>
-            <span class="score">{{detail.averageRating*2 || ''}}</span>
+            <span :class="[detail.averageRating?'score':'lack']">{{detail.averageRating?(detail.averageRating*2 || ''):'少于10 人评价'}}</span>
         </div>
         <div class="kinds-tags">
             <span class="categories">
@@ -51,6 +51,7 @@
 
 <script>
 // https://read.douban.com/j/column_v2/7364387/
+
 import axios from 'axios'
 import {mapState} from 'vuex'
 import {GET_DETAIL} from '../../../store/columnsDetail/const'
@@ -59,7 +60,7 @@ export default {
   props: ['id'],
   data () {
       return {
-          isShow:true,
+          isShow:true
       }
   },
   methods: {
@@ -156,7 +157,7 @@ export default {
                 display: inline-block;
                 font-size: .14rem;
                 overflow: hidden;
-                width: .73rem;
+                width: .75rem;
                 height: 14px;
                 text-indent: 0;
                 background:url('https://img3.doubanio.com/f/ark/d77e4fb55f64b99f5b7f095aa263f0357e17003d/pics/app/stars.svg') no-repeat;
@@ -168,12 +169,16 @@ export default {
             .stars-active {
                 background-position: 0 -.17rem;
             }
-            .stars-45 .stars-active{
-                width: .66rem;
-            }
+            // .stars-active{
+            //     width: .66rem;
+            // }
             .score {
                 color: #fa595f;
                 vertical-align: .5px;
+            }
+            .lack {
+                color: #a6a6a6;
+                font-size: 12px;
             }
         }
         .kinds-tags {
