@@ -41,6 +41,16 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: () => import('@/components/page/Register/Register')
+    },
+    {
+      path: '/cars',
+      name: 'Cars',
+      component: () => import('@/components/page/Cars/Cars')
+    },
+    {
+      path: '/mine',
+      name: 'Mine',
+      component: () => import('@/components/page/Mine/Mine')
     }
     
   ]
