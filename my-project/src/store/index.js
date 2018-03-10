@@ -7,9 +7,10 @@ import list from './list'
 import homedetail from './homedetail'
 import columns from './columns'
 import columnsDetail from './columnsDetail'
+import login from './login'
 const store = new Vuex.Store({
     modules:{
-        home,list,homedetail,columns,columnsDetail
+        home,list,homedetail,columns,columnsDetail,login
     }
 }) 
 export default store

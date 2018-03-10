@@ -6,9 +6,9 @@
             <div class="user-img">
                 <img src="https://img1.doubanio.com/icon/user_normal.jpg" alt="">
             </div>
-            <div class="user-name">xxxx</div>
-            <div class="user-id">122313131</div>
-            <a href="#" class="btn">退出登录</a>
+            <div class="user-name">{{this.user_name}}</div>
+            <div class="user-id">{{this.user_id}}</div>
+            <a href="#" class="btn" @click="this.re_local">退出登录</a>
        </div>
        <div class="message">
            <img src="https://img3.doubanio.com/f/ark/33c7821f96d15d9c09914996d7969d12e73999f9/pics/mobile/ic_douban@2x.png" alt="">
@@ -20,8 +20,24 @@
     </div>
 </template>
 <script>
+import {RE_USERINFO} from '../../../store/login/const'
+import {mapMutations} from 'vuex'
 export default {
-  name:'mine-content'
+  name:'mine-content',
+  data(){
+          return{
+                  user_name:localStorage.user_name,
+                  user_id : localStorage.user_id,
+          }
+  },
+  methods:{
+       re_local(){
+                  this.$store.commit(RE_USERINFO)
+          this.$router.replace({name:'Home'})
+       },
+        ...mapMutations([RE_USERINFO])
+
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -3,14 +3,14 @@
       <div class="login-content">
         <form>
           <div class="element form-username">
-            <input type="text" name="form-username" placeholder="用户名">
+            <input type="text" name="form-username" placeholder="用户名" ref="tel">
           </div>
           <div class="element form-pwd">
-            <input :type="[eyeShow?'password':'text']" name="form-password" placeholder="密码">
+            <input :type="[eyeShow?'password':'text']" name="form-password" placeholder="密码" ref="pwd">
             <span @click="isShow" :class="[eyeShow?'openpwd':'openpwd open']"></span>
           </div>
           <div class="element submit-button">
-            <input class="btn-submit" type="submit" value="登录">
+            <input class="btn-submit" type="button" value="登录" @click="login">
           </div>
         </form>
         <div class="item">
@@ -24,6 +24,10 @@
 </template>
 
 <script>
+
+import { Toast } from 'mint-ui'
+import {LOGIN} from '../../../store/login/const'
+import{mapActions} from 'vuex'
 export default {
   name:'app-login',
   data () {
@@ -34,8 +38,25 @@ export default {
   methods: {
     isShow () {
       this.eyeShow = !this.eyeShow
-    }
-  }
+    },
+    login(){
+       let user_id = this.$refs.tel.value
+       let user_pwd = this.$refs.pwd.value
+      
+      this.$store.dispatch(LOGIN,{user_id,user_pwd})
+      if(localStorage.is){
+        
+          this.$router.replace({name:'Mine'})
+           localStorage.removeItem('is');
+         
+      }else{
+      
+      }
+    },
+    ...mapActions([LOGIN])
+
+  },
+
 }
 </script>
 

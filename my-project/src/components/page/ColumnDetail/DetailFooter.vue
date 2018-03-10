@@ -17,7 +17,7 @@
       </div>
       <div style="width:40%;" class="footer-col">
           <div class="subscribe">
-            <div class="btn-subscribe" @click="CONTROL_MODEL({modelShow:true})">
+            <div class="btn-subscribe"  @click="is?success():CONTROL_MODEL({modelShow:true})">
                 <span class="btn-text">订阅</span>
             </div>
           </div>
@@ -26,17 +26,29 @@
 </template>
 
 <script>
+import { Toast } from 'mint-ui';
 import {mapState,mapMutations} from 'vuex'
 import {CONTROL_MODEL} from '../../../store/columnsDetail/const'
 export default {
   name: 'detail-footer',
+   data(){
+      return{
+          is : localStorage.user_id?true:false
+      }
+    },
   computed: {
       ...mapState({
           detail:state=>state.columnsDetail.detail
       })
   },
   methods: {
-      ...mapMutations([CONTROL_MODEL])
+      ...mapMutations([CONTROL_MODEL]),
+      success(){
+            Toast({
+            message: '订阅成功',
+            iconClass: 'fa fa-check'
+          })
+      }
   }
 }
 </script>

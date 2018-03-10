@@ -12,14 +12,16 @@
                   <i class="fa fa-gift"></i>
               </a>
             </div>
-              <router-link  class="footerbar" style="width:30%" :to="{name:'Cars',params:{
+               <div v-if="!is" @click="CONTROL_MODEL({modelShow:true})" class="footerbar" style="width:30%" ><a href="#"  class="btn-self">
+                  请登录
+              </a></div>
+              <router-link  v-else class="footerbar" style="width:30%" :to="{name:'Cars',params:{
                   id:id,
                   price:bookdetail.price,
                   name:bookdetail.title,
                   num:1,
                   type:1
               }
-
               }" tag="div">
                    <a href="#"  class="btn-self">
                   购买
@@ -35,12 +37,15 @@
 </template>
 <script>
 import{GET_BOOKDETAIL} from '../../../store/homedetail/const'
+import {mapMutations} from 'vuex'
+import {CONTROL_MODEL} from '../../../store/columnsDetail/const'
 import{mapState,mapActions} from 'vuex'
 export default {
   name:'detail-bottom',
   data(){
    return{
-       id:this.$route.params.id
+       id:this.$route.params.id,
+       is : localStorage.user_id?true:false
    }
   },
    computed:{
@@ -48,9 +53,12 @@ export default {
           bookdetail:state=>state.homedetail.bookdetail
       })
   },
+  methods:{
+       ...mapMutations([CONTROL_MODEL]),
+  },
   mounted(){
-      console.log(this.bookdetail)
-       console.log(this.id)
+     
+     
   }
 
 }

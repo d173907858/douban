@@ -11,7 +11,7 @@
     <div class="serch">
         <span class="fa fa-search"></span>
     </div>
-    <div  class="ren"  @click="CONTROL_MODEL({modelShow:true})">
+    <div  class="ren"  @click="is?toMine():CONTROL_MODEL({modelShow:true})">
         <span class="fa fa-user"></span>
     </div>
 </div>
@@ -19,14 +19,24 @@
 </div>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations,mapState} from 'vuex'
 import {CONTROL_MODEL} from '../../../store/columnsDetail/const'
 export default {
     name:"tab-bar",
     props:['isShow','tagShow'],
     methods: {
-      ...mapMutations([CONTROL_MODEL])
-    } 
+      ...mapMutations([CONTROL_MODEL]),
+      toMine(){ 
+         
+          this.$router.replace({name:'Mine'})
+      }
+    },
+    computed:{
+         ...mapState({
+           is:state=>state.login.is
+      })
+       
+    }
   
 }
 </script>

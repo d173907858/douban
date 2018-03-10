@@ -3,23 +3,27 @@
     <h1 class="welcome">欢迎加入豆瓣阅读</h1>
     <form>
         <div class="input" id="getInput">
-            <input type="number"  name="number" placeholder="手机号" autocapitalize="off" autocorrect="off">
+            <input type="number"  name="number" placeholder="手机号" autocapitalize="off" autocorrect="off" ref="tel">
         </div>
         <div class="input">
-            <input :type="[eShow?'text':'password']" name="password" placeholder="密码（最少6位）" autocapitalize="off" autocorrect="off">
+            <input :type="[eShow?'text':'password']" name="password" placeholder="密码（最少6位）" autocapitalize="off" autocorrect="off" ref="pwd">
             <span @click="isShow" :class="[eShow?'opt eye-open':'opt eye-close']"></span>
         </div>
          <div class="input" id="getNickName">
-            <input type="text" name="name" placeholder="昵称" maxlength="10" autocapitalize="off" autocorrect="off">
+            <input type="text" name="name" placeholder="昵称" maxlength="10" autocapitalize="off" autocorrect="off" ref="nickname">
         </div>
         <div class="form-reg">
-            <input class="btn-submit" type="submit" value="注册">
+            <input class="btn-submit" type="button" value="注册" @click="get_value">
+              <router-link  tag = "div" :to="{name:'Login'}" class="btn-submit"  style="margin-top:20px;background:red;text-align:center;line-height:44px">去登录</router-link>
             <p class="agreement">点击注册代表你已阅读并同意用户使用协议</p>
         </div>
     </form>
   </div>
 </template>
 <script>
+import { Toast } from 'mint-ui';
+import {SET_USERINFO} from '../../../store/login/const'
+import {mapMutations} from 'vuex'
 export default {
   name: 'app-register',
   data () {
@@ -30,7 +34,17 @@ export default {
   methods: {
       isShow () {
           this.eShow = !this.eShow
-      }
+      },
+      get_value(){
+          let user_id = this.$refs.tel.value
+          let user_pwd = this.$refs.pwd.value
+          let user_name = this.$refs.nickname.value
+          
+           this.$store.commit(SET_USERINFO,{user_id,user_pwd,user_name})
+          
+
+      },
+      ...mapMutations([SET_USERINFO])
   }
 }
 </script>
