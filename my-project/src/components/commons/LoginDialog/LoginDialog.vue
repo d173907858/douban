@@ -51,7 +51,7 @@ export default {
     .login-dialog {
         position: fixed;
         top: 1.8rem;
-        left: .4rem;
+        left: 10%;
         padding: 12px;
         background: #fff;
         width: 90%;

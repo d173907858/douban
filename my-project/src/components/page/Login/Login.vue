@@ -6,8 +6,8 @@
             <input type="text" name="form-username" placeholder="用户名" ref="tel">
           </div>
           <div class="element form-pwd">
-            <input :type="[eyeShow?'password':'text']" name="form-password" placeholder="密码" ref="pwd">
-            <span @click="isShow" :class="[eyeShow?'openpwd':'openpwd open']"></span>
+            <input :type="[eyeShow?'text':'password']" name="form-password" placeholder="密码" ref="pwd">
+            <span @click="isShow" :class="[eyeShow?'openpwd open':'openpwd']"></span>
           </div>
           <div class="element submit-button">
             <input class="btn-submit" type="button" value="登录" @click="login">
@@ -86,10 +86,6 @@ export default {
       line-height: .32rem;
       background: #fff;
       border: 1px solid #ccc;
-      border-top: 0;
-    }
-    input[type="password"] {
-      border-top: 0;
     }
     
     span.openpwd {
