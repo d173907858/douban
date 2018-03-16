@@ -6,9 +6,11 @@ import {
 
 import axios from 'axios'
 import config from '../../modules/config'
-import { Toast } from 'mint-ui';
+import { Toast } from 'mint-ui'
+import qs from 'qs'
 let start = 0;
 let bookid =''
+
 
 let actions ={
     
@@ -20,11 +22,12 @@ let actions ={
             iconClass: 'fa fa-spinner fa-pulse',
             duration:-1
         });
-       
-         
-        axios.get(config.host+'/db/j/category/'+id,{
-            params:{start,limit:10}
-        }).then(res => {
+        
+        axios.post(config.host+'/j/category/'+id,qs.stringify({
+            target:'https://read.douban.com/',
+            method:'get',
+            start,limit:10
+          })).then(res => {
              toast.close()
             commit(SET_BOOKS,res.data)
             // console.log(res.data)
@@ -41,13 +44,15 @@ let actions ={
         
             start = 0
             bookid = id
-      
-
-     
         
-       axios.get(config.host+'/db/j/category/'+id,{
-           params:{start,limit:10}
-       }).then(res => {
+        // let params = new URLSearchParams()
+        // params.append('start','0')
+        // params.append('limit','10')
+       axios.post(config.host+'/j/category/'+id,qs.stringify({
+        target:'https://read.douban.com/',
+        method:'get',
+        start,limit:10
+      })).then(res => {
             toast.close()
            commit(SET_BOOKS,res.data)
            // console.log(res.data)

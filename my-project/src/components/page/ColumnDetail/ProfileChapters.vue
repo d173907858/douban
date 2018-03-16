@@ -28,6 +28,7 @@
 
 <script>
 import axios from 'axios'
+import qs from 'qs'
 export default {
   name:'detail-profile-chapters',
   props:['id'],
@@ -46,9 +47,11 @@ export default {
   methods: {
       getChapters () {
           let {count,start} = this
-          axios.get(this.$root.config.host + '/db/j/column_v2/' + this.id +'/chapters',{
-              params:{start:this.start,limit:this.count,latestFirst:1}
-          }).then(res=>{
+          axios.post(this.$root.config.host + '/j/column_v2/' + this.id +'/chapters',qs.stringify({
+            target:'https://read.douban.com/',
+            method:'get',
+            start:this.start,limit:this.count,latestFirst:1
+        })).then(res=>{
               this.loadmore = '点击加载更多'
               this.chapters.total = res.data.total
               this.chapters.list = this.chapters.list.concat(res.data.list)

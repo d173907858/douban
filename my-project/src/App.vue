@@ -2,7 +2,7 @@
   <div id="app">
     
     <app-header></app-header>
-    <keep-alive><router-view></router-view></keep-alive>
+    <router-view></router-view>
     <login-dialog></login-dialog>
   </div>
 </template>

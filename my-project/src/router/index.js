@@ -19,7 +19,8 @@ export default new Router({
     {
       path: '/homedetail/:id',
       name: 'HomeDetail',
-      component: () => import('@/components/page/HomeDetail/HomeDetail')
+      component: () => import('@/components/page/HomeDetail/HomeDetail'),
+      props: true
     },
     {
       path: '/columns',
